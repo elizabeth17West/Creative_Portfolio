@@ -2,7 +2,8 @@
 
 A visually led marketing portfolio for Elizabeth West, built to accompany her resume. It showcases social media, blog/analytics work, promotional items (swag + brochure), with scaffolded sections for consulting and event planning.
 
-**Live site (GitHub Pages):** https://elizabeth17West.github.io/Creative_Portfolio/
+**Live site:** https://lizportfolio.com/  
+(GitHub Pages project URL also works once paths match the host; this build uses `base: '/'` for the custom domain.)
 
 ## Local development
 
