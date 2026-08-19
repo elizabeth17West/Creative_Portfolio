@@ -62,15 +62,53 @@ document.querySelector('#app').innerHTML = `
   <header class="site-header">
     <div class="site-header__bar">
       <a class="logo" href="#top" aria-label="${site.name}, back to top">${site.name}</a>
-      <button
-        type="button"
-        class="nav-toggle"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        aria-label="Open menu"
-      >
-        <span class="nav-toggle__bars" aria-hidden="true"></span>
-      </button>
+      <div class="site-header__actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          aria-pressed="false"
+          aria-label="Switch to dark mode"
+        >
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" focusable="false">
+              <path
+                d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 6.5 6.5 0 1 0 20.5 14.5Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" focusable="false">
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+              />
+              <path
+                d="M12 3v2.25M12 18.75V21M4.22 4.22l1.59 1.59M18.19 18.19l1.59 1.59M3 12h2.25M18.75 12H21M4.22 19.78l1.59-1.59M18.19 5.81l1.59-1.59"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       ${nav.map((item) => `<a href="${item.href}">${item.label}</a>`).join('')}
@@ -250,4 +288,43 @@ document.addEventListener('keydown', (event) => {
     setNavOpen(false)
     navToggle.focus()
   }
+})
+
+const THEME_KEY = 'theme'
+const root = document.documentElement
+const themeToggle = document.querySelector('.theme-toggle')
+
+function applyTheme(theme) {
+  const isDark = theme === 'dark'
+
+  if (isDark) {
+    root.setAttribute('data-theme', 'dark')
+  } else {
+    root.removeAttribute('data-theme')
+  }
+
+  themeToggle.setAttribute('aria-pressed', String(isDark))
+  themeToggle.setAttribute(
+    'aria-label',
+    isDark ? 'Switch to light mode' : 'Switch to dark mode',
+  )
+
+  try {
+    localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light')
+  } catch (error) {}
+}
+
+function getStoredTheme() {
+  try {
+    return localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light'
+  } catch (error) {
+    return 'light'
+  }
+}
+
+applyTheme(getStoredTheme())
+
+themeToggle.addEventListener('click', () => {
+  const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+  applyTheme(nextTheme)
 })
