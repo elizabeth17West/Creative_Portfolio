@@ -12,13 +12,21 @@ import {
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 
+const srOnly = (text) => `<span class="sr-only">${text}</span>`
+
 function reelLink({ title, url }) {
   return `
-    <a class="reel" href="${url}" target="_blank" rel="noopener noreferrer">
-      <span class="reel__title">${title}</span>
-      <span class="reel__meta">Watch on Instagram</span>
-    </a>
+    <li>
+      <a class="reel" href="${url}" target="_blank" rel="noopener noreferrer">
+        <span class="reel__title">${title}</span>
+        <span class="reel__meta">Watch on Instagram${srOnly(' (opens in new tab)')}</span>
+      </a>
+    </li>
   `
+}
+
+function sectionHeading(id, text) {
+  return `<h2 id="${id}">${text}</h2>`
 }
 
 function gallery(images) {
@@ -31,7 +39,7 @@ function gallery(images) {
         .map(
           (img) => `
         <figure class="gallery__item">
-          <img src="${asset(img.src)}" alt="${img.alt}" loading="lazy" />
+          <img src="${asset(img.src)}" alt="${img.alt}" loading="lazy" decoding="async" />
         </figure>
       `,
         )
@@ -52,33 +60,44 @@ document.querySelector('#app').innerHTML = `
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <a class="logo" href="#top">${site.name}</a>
-    <nav class="site-nav" aria-label="Primary">
+    <div class="site-header__bar">
+      <a class="logo" href="#top" aria-label="${site.name}, back to top">${site.name}</a>
+      <button
+        type="button"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
       ${nav.map((item) => `<a href="${item.href}">${item.label}</a>`).join('')}
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="hero__media" aria-hidden="true">
-        <img src="${asset(site.heroImage)}" alt="" />
+        <img src="${asset(site.heroImage)}" alt="" decoding="async" />
         <div class="hero__wash"></div>
       </div>
       <div class="hero__content reveal">
         <p class="eyebrow">${site.title} · ${site.org}</p>
-        <h1>${site.name}</h1>
+        <h1 id="hero-heading">${site.name}</h1>
         <p class="hero__lede">${site.tagline}</p>
         <div class="cta-row">
-          <a class="btn btn--primary" href="#social">View Work</a>
+          <a class="btn btn--primary" href="#social">View work</a>
           <a class="btn btn--ghost" href="#contact">Contact</a>
         </div>
       </div>
     </section>
 
-    <section class="section about" id="about">
+    <section class="section about" id="about" aria-labelledby="about-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">About</p>
-        <h2>Strategy, content, and the numbers behind both</h2>
+        ${sectionHeading('about-heading', 'Strategy, content, and the numbers behind both')}
         ${about.paragraphs.map((p) => `<p class="prose">${p}</p>`).join('')}
         <p class="education">${about.education}</p>
         ${skillRibbon(about.skills)}
@@ -98,42 +117,46 @@ document.querySelector('#app').innerHTML = `
       </div>
     </nav>
 
-    <section class="section" id="social">
+    <section class="section" id="social" aria-labelledby="social-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">${social.eyebrow}</p>
-        <h2>${social.headline}</h2>
+        ${sectionHeading('social-heading', social.headline)}
         <p class="prose">${social.body}</p>
-        <div class="reel-grid">
+        <ul class="reel-grid" aria-label="Featured Instagram reels">
           ${social.featured.map(reelLink).join('')}
-        </div>
+        </ul>
         <details class="more-work">
           <summary>More work</summary>
-          <div class="reel-grid reel-grid--compact">
+          <ul class="reel-grid reel-grid--compact" aria-label="Additional Instagram reels">
             ${social.more.map(reelLink).join('')}
-          </div>
+          </ul>
         </details>
         <p class="section__foot">
-          <a href="${site.instagram}" target="_blank" rel="noopener noreferrer">Follow @uis.edu on Instagram</a>
+          <a href="${site.instagram}" target="_blank" rel="noopener noreferrer">
+            Follow @uis.edu on Instagram${srOnly(' (opens in new tab)')}
+          </a>
         </p>
       </div>
     </section>
 
-    <section class="section section--tint" id="blog">
+    <section class="section section--tint" id="blog" aria-labelledby="blog-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">${blog.eyebrow}</p>
-        <h2>${blog.headline}</h2>
+        ${sectionHeading('blog-heading', blog.headline)}
         <p class="prose">${blog.body}</p>
         <ul class="tool-list" aria-label="Analytics tools">
           ${blog.tools.map((t) => `<li>${t}</li>`).join('')}
         </ul>
-        <a class="btn btn--primary" href="${blog.cta.url}" target="_blank" rel="noopener noreferrer">${blog.cta.label}</a>
+        <a class="btn btn--primary" href="${blog.cta.url}" target="_blank" rel="noopener noreferrer">
+          ${blog.cta.label}${srOnly(' (opens in new tab)')}
+        </a>
       </div>
     </section>
 
-    <section class="section" id="promo">
+    <section class="section" id="promo" aria-labelledby="promo-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">${promo.eyebrow}</p>
-        <h2>${promo.headline}</h2>
+        ${sectionHeading('promo-heading', promo.headline)}
 
         <article class="case">
           <h3>${promo.welcome.title}</h3>
@@ -149,34 +172,38 @@ document.querySelector('#app').innerHTML = `
       </div>
     </section>
 
-    <section class="section section--tint" id="consulting">
+    <section class="section section--tint" id="consulting" aria-labelledby="consulting-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">${consulting.eyebrow}</p>
-        <h2>${consulting.headline}</h2>
+        ${sectionHeading('consulting-heading', consulting.headline)}
         <p class="prose">${consulting.body}</p>
         ${gallery(consulting.images)}
         <p class="scaffold-note">${consulting.note}</p>
       </div>
     </section>
 
-    <section class="section" id="events">
+    <section class="section" id="events" aria-labelledby="events-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">${events.eyebrow}</p>
-        <h2>${events.headline}</h2>
+        ${sectionHeading('events-heading', events.headline)}
         <p class="prose">${events.body}</p>
         ${gallery(events.images)}
         <p class="scaffold-note">${events.note}</p>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
       <div class="section__inner reveal">
         <p class="eyebrow">Contact</p>
-        <h2>Let’s talk about your next campaign</h2>
+        ${sectionHeading('contact-heading', 'Let’s talk about your next campaign')}
         <p class="prose">This portfolio accompanies my resume. Reach out by email or connect on LinkedIn.</p>
         <div class="cta-row">
-          <a class="btn btn--primary" href="mailto:${site.email}">${site.email}</a>
-          <a class="btn btn--ghost" href="${site.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn--primary" href="mailto:${site.email}">
+            ${site.email}${srOnly(' (opens email app)')}
+          </a>
+          <a class="btn btn--ghost" href="${site.linkedin}" target="_blank" rel="noopener noreferrer">
+            LinkedIn${srOnly(' (opens in new tab)')}
+          </a>
         </div>
       </div>
     </section>
@@ -200,3 +227,27 @@ const observer = new IntersectionObserver(
 )
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+
+const navToggle = document.querySelector('.nav-toggle')
+const siteNav = document.querySelector('.site-nav')
+
+function setNavOpen(open) {
+  siteNav.classList.toggle('is-open', open)
+  navToggle.setAttribute('aria-expanded', String(open))
+  navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+}
+
+navToggle.addEventListener('click', () => {
+  setNavOpen(!siteNav.classList.contains('is-open'))
+})
+
+siteNav.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => setNavOpen(false))
+})
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && siteNav.classList.contains('is-open')) {
+    setNavOpen(false)
+    navToggle.focus()
+  }
+})
