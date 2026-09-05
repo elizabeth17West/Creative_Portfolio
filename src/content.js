@@ -15,7 +15,7 @@ export const about = {
   paragraphs: [
     'I develop and execute integrated marketing campaigns across web, email, social, digital advertising, events, and print—always with a clear audience and a measurable goal.',
     'At the University of Illinois Springfield, I write and plan bi-weekly blog content built for real search behavior, produce short-form social video with a small creative team, and partner on promotional materials from welcome boxes to donor brochures.',
-    'I close the loop with analytics: Google Analytics, UTM tracking, Meta reporting, and Power BI/Tableau dashboards that turn performance into the next decision.',
+    'I close the loop with analytics: Google Analytics, UTM tracking, and Meta reporting that turn performance into the next decision.',
   ],
   education: 'MBA, Marketing · BS Marketing, James Scholar · University of Illinois',
   skills: [
@@ -25,7 +25,6 @@ export const about = {
     'Campaign Development',
     'SEO',
     'Google Analytics',
-    'Power BI / Tableau',
     'Stakeholder Management',
   ],
 }
@@ -115,14 +114,12 @@ export const social = {
 export const blog = {
   eyebrow: 'Blog & Analytics',
   headline: 'Search-minded storytelling, measured in data',
-  body: 'I write, plan, and create graphics for a bi-weekly University of Illinois Springfield blog. Topics follow the questions prospective students actually search—so the content serves humans and AI search engines with accurate information. I track performance in Google Analytics and bring the same measurement mindset to campaigns with UTM tracking, Meta reporting tools, ClickSense, and Power BI/Tableau dashboards.',
+  body: 'I write, plan, and create graphics for a bi-weekly University of Illinois Springfield blog. Topics follow the questions prospective students actually search—so the content serves humans and AI search engines with accurate information. I track performance in Google Analytics and bring the same measurement mindset to campaigns with UTM tracking, Meta reporting tools, and ClickSense.',
   tools: [
     'Google Analytics',
     'UTM Tracking',
     'Meta Reporting',
     'ClickSense',
-    'Power BI',
-    'Tableau',
     'SEO',
   ],
   cta: { label: 'Read the UIS blog', url: 'https://www.uis.edu/blog' },
