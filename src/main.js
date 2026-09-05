@@ -30,9 +30,7 @@ function sectionHeading(id, text) {
 }
 
 function gallery(images) {
-  if (!images.length) {
-    return `<div class="gallery-empty" role="status">Photos coming soon</div>`
-  }
+  if (!images.length) return ''
   return `
     <div class="gallery">
       ${images
@@ -215,8 +213,6 @@ document.querySelector('#app').innerHTML = `
         <p class="eyebrow">${consulting.eyebrow}</p>
         ${sectionHeading('consulting-heading', consulting.headline)}
         <p class="prose">${consulting.body}</p>
-        ${gallery(consulting.images)}
-        <p class="scaffold-note">${consulting.note}</p>
       </div>
     </section>
 
@@ -225,8 +221,6 @@ document.querySelector('#app').innerHTML = `
         <p class="eyebrow">${events.eyebrow}</p>
         ${sectionHeading('events-heading', events.headline)}
         <p class="prose">${events.body}</p>
-        ${gallery(events.images)}
-        <p class="scaffold-note">${events.note}</p>
       </div>
     </section>
 

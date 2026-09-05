@@ -114,12 +114,13 @@ export const social = {
 export const blog = {
   eyebrow: 'Blog & Analytics',
   headline: 'Search-minded storytelling, measured in data',
-  body: 'I write, plan, and create graphics for a bi-weekly University of Illinois Springfield blog. Topics follow the questions prospective students actually search—so the content serves humans and AI search engines with accurate information. I track performance in Google Analytics and bring the same measurement mindset to campaigns with UTM tracking, Meta reporting tools, and ClickSense.',
+  body: 'I write, plan, and create graphics for a bi-weekly University of Illinois Springfield blog. Topics follow the questions prospective students actually search—so the content serves humans and AI search engines with accurate information. I track performance in Google Analytics and bring the same measurement mindset to campaigns with UTM tracking, Meta reporting tools, and ClickSense. I use SiteImprove to check content for ADA compliance so the work stays usable for everyone.',
   tools: [
     'Google Analytics',
     'UTM Tracking',
     'Meta Reporting',
     'ClickSense',
+    'SiteImprove',
     'SEO',
   ],
   cta: { label: 'Read the UIS blog', url: 'https://www.uis.edu/blog' },
@@ -160,16 +161,12 @@ export const consulting = {
   eyebrow: 'Consulting',
   headline: 'Field-tested marketing judgment',
   body: 'Before university marketing, I managed regional sales and marketing for Techtronic Industries (Milwaukee Tool)—building partner relationships, running demos and presentations, and generating more than $500,000 in annual territory revenue. That experience still shapes how I advise stakeholders: listen to the market, clarify the offer, and measure what moves.',
-  note: 'Case photos coming soon. Drop files into public/images/consulting/ and tell me which to feature.',
-  images: [],
 }
 
 export const events = {
   eyebrow: 'Event Planning',
   headline: 'Programs people show up for',
   body: 'I plan and execute marketing communications for professional development programs and events—promotional campaigns, attendee communications, registration support, and post-event engagement that keeps the conversation going after the room empties.',
-  note: 'Event photography coming soon. Drop files into public/images/event-planning/ and tell me which to feature.',
-  images: [],
 }
 
 export const nav = [
