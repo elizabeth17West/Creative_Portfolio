@@ -18,9 +18,7 @@
   --surface-card: rgba(255, 255, 255, 0.7);
   --surface-chip: rgba(255, 255, 255, 0.65);
   --surface-section: rgba(255, 255, 255, 0.45);
-  --surface-empty: rgba(255, 255, 255, 0.4);
   --gallery-bg: #cfdbe2;
-  --border-dashed: rgba(14, 36, 48, 0.28);
   --nav-divider: rgba(14, 36, 48, 0.08);
   --skip-bg: #0e2430;
   --skip-fg: #ffffff;
@@ -55,9 +53,7 @@
   --surface-card: rgba(255, 255, 255, 0.06);
   --surface-chip: rgba(255, 255, 255, 0.08);
   --surface-section: rgba(255, 255, 255, 0.04);
-  --surface-empty: rgba(255, 255, 255, 0.04);
   --gallery-bg: #243845;
-  --border-dashed: rgba(232, 240, 244, 0.22);
   --nav-divider: rgba(232, 240, 244, 0.08);
   --skip-bg: #e8f0f4;
   --skip-fg: #0c171e;
@@ -634,22 +630,6 @@ a {
 .gallery__item:hover img,
 .gallery__item:focus-within img {
   transform: scale(1.04);
-}
-
-.gallery-empty {
-  margin-top: 1.25rem;
-  padding: 2.5rem 1.25rem;
-  text-align: center;
-  border: 1px dashed var(--border-dashed);
-  color: var(--ink-soft);
-  background: var(--surface-empty);
-}
-
-.scaffold-note {
-  margin: 1rem 0 0;
-  font-size: 0.95rem;
-  color: var(--ink-soft);
-  max-width: 55ch;
 }
 
 .contact {
