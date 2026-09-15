@@ -33,6 +33,8 @@ Drop files into the matching folder, then ask to wire them into the section (or 
 | --- | --- |
 | Hero | `public/images/hero/` |
 | Orbit / newsletter | `public/images/orbit/` |
+| Getting to Know You | `public/images/gtky/` |
+| Blog posts | `public/images/blog/` |
 | Promotional / swag / brochure | `public/images/promo/` |
 | Social stills (optional) | `public/images/social/` |
 | Consulting | `public/images/consulting/` |

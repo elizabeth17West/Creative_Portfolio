@@ -42,8 +42,9 @@ export const social = {
       url: 'https://www.instagram.com/reel/DR2pliwkp-P/?igsh=d3Q1YzNhZDl4M3Rm',
     },
     {
-      title: 'Our Favorite Student',
-      url: 'https://www.instagram.com/reel/DL8KK89xrD_/?igsh=MWIybzk3Z2N3MmdrZw==',
+      title: 'Brazil Study Away Trip',
+      url: 'https://www.youtube.com/shorts/v9Fn-H2RQO8',
+      meta: 'Watch on YouTube',
     },
     {
       title: 'Plant a Study Buddy',
@@ -71,6 +72,10 @@ export const social = {
     },
   ],
   more: [
+    {
+      title: 'Our Favorite Student',
+      url: 'https://www.instagram.com/reel/DL8KK89xrD_/?igsh=MWIybzk3Z2N3MmdrZw==',
+    },
     {
       title: "St. Patrick's Day Parade",
       url: 'https://www.instagram.com/p/DV4GONTkd9m/?igsh=MXJpcTN0a2hxbWd3ZA==',
@@ -127,6 +132,36 @@ export const blog = {
     'SEO',
   ],
   cta: { label: 'Read the UIS blog', url: 'https://www.uis.edu/blog' },
+  posts: [
+    {
+      title: 'Alumni Feature: Rashad Austin',
+      url: 'https://www.uis.edu/news/alumni-relations/blog-prairie-perspectives-value-uis/alumni-feature-rashad-austin',
+      src: 'images/blog/blog-rashad.png',
+      alt: 'Portrait of Rashad Austin in a suit with a University of Illinois Springfield overlay',
+      meta: 'Read the post',
+    },
+    {
+      title: 'Should You Live on Campus or Commute?',
+      url: 'https://www.uis.edu/news/residence-life/blog-prairie-perspectives-prospective-student-student/should-you-live-campus-or-commute-pros-and-cons-college-students',
+      src: 'images/blog/blog-commute.png',
+      alt: 'Students walking a sunny campus path with a University of Illinois Springfield overlay',
+      meta: 'Read the post',
+    },
+    {
+      title: 'Understanding the Cost of Attendance at UIS',
+      url: 'https://www.uis.edu/news/financial-assistance/blog-prairie-perspectives-prospective-student/understanding-cost-attendance-uis',
+      src: 'images/blog/blog-cost.png',
+      alt: 'Illustrated calculator on a blue background of money icons with the UIS wordmark',
+      meta: 'Read the post',
+    },
+    {
+      title: 'How to Plan for College',
+      url: 'https://www.uis.edu/news/admission/blog-prairie-perspectives-prospective-student/how-plan-college-step-step-guide-high-school-students',
+      src: 'images/blog/blog-planning.png',
+      alt: 'Students walking toward the UIS colonnade with a University of Illinois Springfield overlay',
+      meta: 'Read the post',
+    },
+  ],
 }
 
 export const orbit = {
@@ -183,21 +218,29 @@ export const orbit = {
       {
         title: 'Anthony Bogetti',
         url: 'https://www.uis.edu/news/chemistry/faculty-orbit-campus-announcement/getting-know-you-anthony-bogetti',
+        src: 'images/gtky/gtky-bogetti.png',
+        alt: 'Portrait of Anthony Bogetti in a light blue button-down shirt',
         meta: 'Assistant Professor of Chemistry',
       },
       {
         title: 'Vyvyan Wesley',
         url: 'https://www.uis.edu/news/diversity-center/orbit-campus-announcement-staff/getting-know-you-vyvyan-wesley',
+        src: 'images/gtky/gtky-wesley.png',
+        alt: 'Portrait of Vyvyan Wesley in a magenta sleeveless top',
         meta: 'Assistant Director of Discovery & Success',
       },
       {
         title: 'Courtney Adams',
         url: 'https://www.uis.edu/news/strategic-communication/orbit-campus-announcement-staff/getting-know-you-courtney-adams',
+        src: 'images/gtky/gtky-adams.png',
+        alt: 'Portrait of Courtney Adams wearing glasses and a black polka-dot top',
         meta: 'Academic Affairs Communication Associate',
       },
       {
         title: 'Adam Hill',
         url: 'https://www.uis.edu/news/college-public-affairs-and-education/orbit-campus-announcement-staff/getting-know-you-adam-hill',
+        src: 'images/gtky/gtky-hill.png',
+        alt: 'Portrait of Adam Hill in a light gray shirt',
         meta: 'Academic Advisor, CPAE',
       },
     ],
@@ -205,26 +248,36 @@ export const orbit = {
       {
         title: 'Maddie Routh',
         url: 'https://www.uis.edu/news/admission/orbit-campus-announcement-staff/getting-know-you-maddie-routh',
+        src: 'images/gtky/gtky-routh.png',
+        alt: 'Portrait of Maddie Routh in a patterned blouse against a brick wall',
         meta: 'Admissions and Records Officer',
       },
       {
         title: 'Ryan Bye',
         url: 'https://www.uis.edu/news/orbit/orbit-campus-announcement-staff/getting-know-you-ryan-bye',
+        src: 'images/gtky/gtky-bye.jpg',
+        alt: 'Portrait of Ryan Bye wearing glasses and a lavender check shirt',
         meta: 'Director, Strategy and Partnerships',
       },
       {
         title: 'Kyle Blount',
         url: 'https://www.uis.edu/news/orbit/faculty-orbit-campus-announcement-staff/getting-know-you-kyle-blount',
+        src: 'images/gtky/gtky-blount.png',
+        alt: 'Portrait of Kyle Blount in a light blue dress shirt',
         meta: 'Assistant Professor, SISSPH',
       },
       {
         title: 'Krystal Geist',
         url: 'https://www.uis.edu/news/orbit-campus-announcement-staff/getting-know-you-krystal-geist',
+        src: 'images/gtky/gtky-geist.jpg',
+        alt: 'Portrait of Krystal Geist in a black and gold patterned top',
         meta: 'Associate Director of Alumni and Donor Engagement',
       },
       {
         title: 'Tena Helton',
         url: 'https://www.uis.edu/news/english-and-modern-languages/faculty-orbit-campus-announcement/getting-know-you-tena-helton',
+        src: 'images/gtky/gtky-helton.jpg',
+        alt: 'Portrait of Tena Helton seated in an office with bookshelves behind her',
         meta: 'Professor of English',
       },
     ],
