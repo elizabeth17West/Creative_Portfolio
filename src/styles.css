@@ -570,6 +570,83 @@ a {
   color: var(--ink-soft);
 }
 
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 1.75rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.blog-grid > li {
+  min-width: 0;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--surface-card);
+  border: 1px solid var(--line);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover,
+.blog-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--reel-hover-border);
+  box-shadow: var(--shadow);
+}
+
+.blog-card:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.blog-card__media {
+  display: block;
+  overflow: hidden;
+}
+
+.blog-card__image {
+  width: 100%;
+  aspect-ratio: 1200 / 650;
+  object-fit: cover;
+  background: var(--gallery-bg);
+  transition: transform 0.45s ease;
+}
+
+.gtky-grid .blog-card__image {
+  aspect-ratio: 3 / 4;
+  object-position: center top;
+}
+
+.blog-card:hover .blog-card__image,
+.blog-card:focus-visible .blog-card__image {
+  transform: scale(1.04);
+}
+
+.blog-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.blog-card__title {
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.blog-card__meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
 .more-work {
   margin: 1.25rem 0;
 }
@@ -585,6 +662,10 @@ a {
 .more-work summary:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 3px;
+}
+
+.more-work .blog-grid {
+  margin-top: 0.5rem;
 }
 
 .section__foot {
@@ -634,15 +715,18 @@ a {
 
 .orbit-visuals {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 0.85rem;
   margin: 1.75rem 0 0.5rem;
+  align-items: stretch;
 }
 
 .orbit-visual {
   position: relative;
   display: block;
   overflow: hidden;
+  width: 100%;
+  min-width: 0;
   min-height: 0;
   text-decoration: none;
   background: #0e2430;
@@ -675,7 +759,8 @@ a {
 }
 
 .orbit-visual--issue .orbit-visual__image {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   background: #b7d4ea;
 }
 
@@ -830,6 +915,10 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
   .work-nav__links {
     flex-direction: column;
     gap: 0.35rem;
@@ -859,6 +948,8 @@ a {
   .gallery__item img,
   .orbit-visual,
   .orbit-visual__image,
+  .blog-card,
+  .blog-card__image,
   .btn,
   .nav-toggle__bars,
   .nav-toggle__bars::before,

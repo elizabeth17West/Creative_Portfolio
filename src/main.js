@@ -26,6 +26,22 @@ function reelLink({ title, url, meta = 'Watch on Instagram' }) {
   `
 }
 
+function blogCard({ title, url, src, alt, meta = 'Read the post' }) {
+  return `
+    <li>
+      <a class="blog-card" href="${url}" target="_blank" rel="noopener noreferrer">
+        <span class="blog-card__media">
+          <img class="blog-card__image" src="${asset(src)}" alt="${alt}" loading="lazy" decoding="async" />
+        </span>
+        <span class="blog-card__copy">
+          <span class="blog-card__title">${title}</span>
+          <span class="blog-card__meta">${meta}${srOnly(' (opens in new tab)')}</span>
+        </span>
+      </a>
+    </li>
+  `
+}
+
 function orbitVisual(item) {
   const logo = item.logo
     ? `<img class="orbit-visual__logo" src="${asset(item.logo)}" alt="" />`
@@ -194,13 +210,13 @@ document.querySelector('#app').innerHTML = `
         <article class="case">
           <h3>${orbit.profiles.title}</h3>
           <p class="prose">${orbit.profiles.body}</p>
-          <ul class="reel-grid" aria-label="Getting to Know You profiles">
-            ${orbit.profiles.items.map(reelLink).join('')}
+          <ul class="blog-grid gtky-grid" aria-label="Getting to Know You profiles">
+            ${orbit.profiles.items.map(blogCard).join('')}
           </ul>
           <details class="more-work">
             <summary>More profiles</summary>
-            <ul class="reel-grid reel-grid--compact" aria-label="Additional Getting to Know You profiles">
-              ${orbit.profiles.more.map(reelLink).join('')}
+            <ul class="blog-grid gtky-grid" aria-label="Additional Getting to Know You profiles">
+              ${orbit.profiles.more.map(blogCard).join('')}
             </ul>
           </details>
         </article>
@@ -216,12 +232,12 @@ document.querySelector('#app').innerHTML = `
         <p class="eyebrow">${social.eyebrow}</p>
         ${sectionHeading('social-heading', social.headline)}
         <p class="prose">${social.body}</p>
-        <ul class="reel-grid" aria-label="Featured Instagram reels">
+        <ul class="reel-grid" aria-label="Featured short-form videos">
           ${social.featured.map(reelLink).join('')}
         </ul>
         <details class="more-work">
           <summary>More work</summary>
-          <ul class="reel-grid reel-grid--compact" aria-label="Additional Instagram reels">
+          <ul class="reel-grid reel-grid--compact" aria-label="Additional short-form videos">
             ${social.more.map(reelLink).join('')}
           </ul>
         </details>
@@ -238,6 +254,9 @@ document.querySelector('#app').innerHTML = `
         <p class="eyebrow">${blog.eyebrow}</p>
         ${sectionHeading('blog-heading', blog.headline)}
         <p class="prose">${blog.body}</p>
+        <ul class="blog-grid" aria-label="Featured UIS blog posts">
+          ${blog.posts.map(blogCard).join('')}
+        </ul>
         <ul class="tool-list" aria-label="Analytics tools">
           ${blog.tools.map((t) => `<li>${t}</li>`).join('')}
         </ul>
