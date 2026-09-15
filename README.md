@@ -1,6 +1,6 @@
 # Elizabeth West — Creative Portfolio
 
-A visually led marketing portfolio for Elizabeth West, built to accompany her resume. It showcases social media, blog/analytics work, promotional items (swag + brochure), with scaffolded sections for consulting and event planning.
+A visually led marketing portfolio for Elizabeth West, built to accompany her resume. It showcases social media, blog/analytics work, UIS Orbit internal communications, promotional items (swag + brochure), with scaffolded sections for consulting and event planning.
 
 **Live site:** https://lizportfolio.com/  
 (GitHub Pages project URL also works once paths match the host; this build uses `base: '/'` for the custom domain.)
@@ -32,6 +32,7 @@ Drop files into the matching folder, then ask to wire them into the section (or 
 | Section | Folder |
 | --- | --- |
 | Hero | `public/images/hero/` |
+| Orbit / newsletter | `public/images/orbit/` |
 | Promotional / swag / brochure | `public/images/promo/` |
 | Social stills (optional) | `public/images/social/` |
 | Consulting | `public/images/consulting/` |

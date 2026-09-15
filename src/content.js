@@ -8,6 +8,7 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/elizabeth-west-1b0294189/',
   instagram: 'https://www.instagram.com/uis.edu/',
   blog: 'https://www.uis.edu/blog',
+  orbit: 'https://www.uis.edu/orbit',
   heroImage: 'images/hero/hero-campus.jpg',
 }
 
@@ -15,11 +16,13 @@ export const about = {
   paragraphs: [
     'I develop and execute integrated marketing campaigns across web, email, social, digital advertising, events, and print—always with a clear audience and a measurable goal.',
     'At the University of Illinois Springfield, I write and plan bi-weekly blog content built for real search behavior, produce short-form social video with a small creative team, and partner on promotional materials from welcome boxes to donor brochures.',
+    'I also run internal communications: uploading and editing every article on UIS Orbit, writing the Inside UIS newsletter for faculty and staff, and interviewing new employees for Getting to Know You profiles.',
     'I close the loop with analytics: Google Analytics, UTM tracking, and Meta reporting that turn performance into the next decision.',
   ],
   education: 'MBA, Marketing · BS Marketing, James Scholar · University of Illinois',
   skills: [
     'Marketing Communications',
+    'Internal Communications',
     'Content Strategy',
     'Social Media',
     'Campaign Development',
@@ -126,6 +129,109 @@ export const blog = {
   cta: { label: 'Read the UIS blog', url: 'https://www.uis.edu/blog' },
 }
 
+export const orbit = {
+  eyebrow: 'Internal Communications',
+  headline: 'The employee newsroom, from Orbit to inbox',
+  body: 'I upload and edit every article on UIS Orbit, the internal communication hub for University of Illinois Springfield employees. I write Inside UIS, the biweekly newsletter for all faculty and staff—formerly the Chancellor’s newsletter. I also reach out to new employees and write the Getting to Know You profiles that introduce colleagues across campus.',
+  visuals: [
+    {
+      variant: 'hub',
+      src: 'images/orbit/orbit-banner.jpg',
+      logo: 'images/orbit/orbit-logo-white.png',
+      alt: 'Gold stars on a navy field from the UIS Orbit employee hub',
+      label: 'UIS Orbit',
+      url: 'https://www.uis.edu/orbit',
+    },
+    {
+      variant: 'issue',
+      src: 'images/orbit/inside-uis.png',
+      alt: 'Inside UIS newsletter graphic with star pattern and campus columns',
+      label: 'Inside UIS newsletter',
+      url: 'https://www.uis.edu/newsletter/inside-uis-91426',
+    },
+  ],
+  newsletters: {
+    title: 'Inside UIS',
+    body: 'A biweekly Monday briefing for faculty and staff—campus news, events, deadlines, and the stories that keep the university moving together. This publication was formerly the Chancellor’s newsletter.',
+    items: [
+      {
+        title: 'Inside UIS 9.14.26',
+        url: 'https://www.uis.edu/newsletter/inside-uis-91426',
+        meta: 'Read the issue',
+      },
+      {
+        title: 'Inside UIS 8.31.26',
+        url: 'https://www.uis.edu/newsletter/inside-uis-83126',
+        meta: 'Read the issue',
+      },
+      {
+        title: 'Inside UIS 8.18.26',
+        url: 'https://www.uis.edu/newsletter/inside-uis-81826',
+        meta: 'Read the issue',
+      },
+      {
+        title: 'Inside UIS 8.3.26',
+        url: 'https://www.uis.edu/newsletter/inside-uis-8326',
+        meta: 'Read the relaunch issue',
+      },
+    ],
+  },
+  profiles: {
+    title: 'Getting to Know You',
+    body: 'I reach out to new employees, interview them, and write profiles that help campus get acquainted with the people behind the titles.',
+    items: [
+      {
+        title: 'Anthony Bogetti',
+        url: 'https://www.uis.edu/news/chemistry/faculty-orbit-campus-announcement/getting-know-you-anthony-bogetti',
+        meta: 'Assistant Professor of Chemistry',
+      },
+      {
+        title: 'Vyvyan Wesley',
+        url: 'https://www.uis.edu/news/diversity-center/orbit-campus-announcement-staff/getting-know-you-vyvyan-wesley',
+        meta: 'Assistant Director of Discovery & Success',
+      },
+      {
+        title: 'Courtney Adams',
+        url: 'https://www.uis.edu/news/strategic-communication/orbit-campus-announcement-staff/getting-know-you-courtney-adams',
+        meta: 'Academic Affairs Communication Associate',
+      },
+      {
+        title: 'Adam Hill',
+        url: 'https://www.uis.edu/news/college-public-affairs-and-education/orbit-campus-announcement-staff/getting-know-you-adam-hill',
+        meta: 'Academic Advisor, CPAE',
+      },
+    ],
+    more: [
+      {
+        title: 'Maddie Routh',
+        url: 'https://www.uis.edu/news/admission/orbit-campus-announcement-staff/getting-know-you-maddie-routh',
+        meta: 'Admissions and Records Officer',
+      },
+      {
+        title: 'Ryan Bye',
+        url: 'https://www.uis.edu/news/orbit/orbit-campus-announcement-staff/getting-know-you-ryan-bye',
+        meta: 'Director, Strategy and Partnerships',
+      },
+      {
+        title: 'Kyle Blount',
+        url: 'https://www.uis.edu/news/orbit/faculty-orbit-campus-announcement-staff/getting-know-you-kyle-blount',
+        meta: 'Assistant Professor, SISSPH',
+      },
+      {
+        title: 'Krystal Geist',
+        url: 'https://www.uis.edu/news/orbit-campus-announcement-staff/getting-know-you-krystal-geist',
+        meta: 'Associate Director of Alumni and Donor Engagement',
+      },
+      {
+        title: 'Tena Helton',
+        url: 'https://www.uis.edu/news/english-and-modern-languages/faculty-orbit-campus-announcement/getting-know-you-tena-helton',
+        meta: 'Professor of English',
+      },
+    ],
+  },
+  cta: { label: 'Visit UIS Orbit', url: 'https://www.uis.edu/orbit' },
+}
+
 export const promo = {
   eyebrow: 'Promotional Items',
   headline: 'Tangible brand moments students keep',
@@ -171,6 +277,7 @@ export const events = {
 
 export const nav = [
   { label: 'About', href: '#about' },
+  { label: 'Orbit', href: '#orbit' },
   { label: 'Social', href: '#social' },
   { label: 'Blog', href: '#blog' },
   { label: 'Promo', href: '#promo' },
