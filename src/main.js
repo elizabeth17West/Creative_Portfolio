@@ -4,6 +4,7 @@ import {
   about,
   social,
   blog,
+  orbit,
   promo,
   consulting,
   events,
@@ -14,14 +15,33 @@ const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 
 const srOnly = (text) => `<span class="sr-only">${text}</span>`
 
-function reelLink({ title, url }) {
+function reelLink({ title, url, meta = 'Watch on Instagram' }) {
   return `
     <li>
       <a class="reel" href="${url}" target="_blank" rel="noopener noreferrer">
         <span class="reel__title">${title}</span>
-        <span class="reel__meta">Watch on Instagram${srOnly(' (opens in new tab)')}</span>
+        <span class="reel__meta">${meta}${srOnly(' (opens in new tab)')}</span>
       </a>
     </li>
+  `
+}
+
+function orbitVisual(item) {
+  const logo = item.logo
+    ? `<img class="orbit-visual__logo" src="${asset(item.logo)}" alt="" />`
+    : ''
+
+  return `
+    <a
+      class="orbit-visual orbit-visual--${item.variant}"
+      href="${item.url}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img class="orbit-visual__image" src="${asset(item.src)}" alt="${item.alt}" loading="lazy" decoding="async" />
+      ${logo}
+      <span class="orbit-visual__label">${item.label}${srOnly(' (opens in new tab)')}</span>
+    </a>
   `
 }
 
@@ -124,7 +144,7 @@ document.querySelector('#app').innerHTML = `
         <h1 id="hero-heading">${site.name}</h1>
         <p class="hero__lede">${site.tagline}</p>
         <div class="cta-row">
-          <a class="btn btn--primary" href="#social">View work</a>
+          <a class="btn btn--primary" href="#orbit">View work</a>
           <a class="btn btn--ghost" href="#contact">Contact</a>
         </div>
       </div>
@@ -144,6 +164,7 @@ document.querySelector('#app').innerHTML = `
       <div class="work-nav__inner reveal">
         <p class="eyebrow">Selected work</p>
         <div class="work-nav__links">
+          <a href="#orbit">Orbit</a>
           <a href="#social">Social Media</a>
           <a href="#blog">Blog &amp; Analytics</a>
           <a href="#promo">Promotional</a>
@@ -152,6 +173,43 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
     </nav>
+
+    <section class="section section--tint" id="orbit" aria-labelledby="orbit-heading">
+      <div class="section__inner reveal">
+        <p class="eyebrow">${orbit.eyebrow}</p>
+        ${sectionHeading('orbit-heading', orbit.headline)}
+        <p class="prose">${orbit.body}</p>
+        <div class="orbit-visuals">
+          ${orbit.visuals.map(orbitVisual).join('')}
+        </div>
+
+        <article class="case">
+          <h3>${orbit.newsletters.title}</h3>
+          <p class="prose">${orbit.newsletters.body}</p>
+          <ul class="reel-grid" aria-label="Inside UIS newsletter issues">
+            ${orbit.newsletters.items.map(reelLink).join('')}
+          </ul>
+        </article>
+
+        <article class="case">
+          <h3>${orbit.profiles.title}</h3>
+          <p class="prose">${orbit.profiles.body}</p>
+          <ul class="reel-grid" aria-label="Getting to Know You profiles">
+            ${orbit.profiles.items.map(reelLink).join('')}
+          </ul>
+          <details class="more-work">
+            <summary>More profiles</summary>
+            <ul class="reel-grid reel-grid--compact" aria-label="Additional Getting to Know You profiles">
+              ${orbit.profiles.more.map(reelLink).join('')}
+            </ul>
+          </details>
+        </article>
+
+        <a class="btn btn--primary" href="${orbit.cta.url}" target="_blank" rel="noopener noreferrer">
+          ${orbit.cta.label}${srOnly(' (opens in new tab)')}
+        </a>
+      </div>
+    </section>
 
     <section class="section" id="social" aria-labelledby="social-heading">
       <div class="section__inner reveal">
